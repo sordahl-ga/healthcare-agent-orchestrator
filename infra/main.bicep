@@ -40,7 +40,7 @@ param model string
 param modelCapacity int
 // https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/deployment-types
 @description('Specify the deployment type of the model. Only allow deployment types where data processing and data storage is within the specified Azure geography.')
-@allowed(['Standard', 'DataZoneStandard'])
+@allowed(['Standard', 'DataZoneStandard','GlobalStandard'])
 param modelSku string
 
 @description('Location to deploy AI Services')
@@ -206,7 +206,8 @@ var names = {
 
 var agentConfigs = {
   default: loadYamlContent('../src/scenarios/default/config/agents.yaml')
-  // Add other scenarios here as needed
+  //nursehuddle: loadYamlContent('../src/scenarios/nursehuddle/config/agents.yaml')
+  //Add other scenarios here as needed
 }
 
 var allAgents = agentConfigs[scenario]
